@@ -1,0 +1,13 @@
+{
+    "appId": "",
+    "sandbox": {
+        "baseUrl": "https://api.tiki.vn/tiniapp-sandbox-open-api",
+        "clientKey": "",
+        "clientSecret": ""
+    },
+    "production": {
+        "baseUrl": "https://api.tiki.vn/tiniapp-open-api",
+        "clientKey": "",
+        "clientSecret": ""
+    }
+}
