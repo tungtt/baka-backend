@@ -19,13 +19,15 @@ def sign(secret, payload):
     return hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest()
 
 
-def new_request_auth_exchange(data_dict):
+def new_request_auth_exchange(data_dict, mode="auth_exchange"):
     # https://developers.tiki.vn/docs/backend-api/platform-api/exchange-auth-token
     # https://api.tiki.vn/tiniapp-open-api/oauth/auth/token
     # Pass the config to the container
     CLIENT_KEY = os.environ.get("CLIENT_KEY")
     CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
     AUTH_ENDPOINT = os.environ.get("AUTH_ENDPOINT")
+    if mode == 'auth_refresh':
+        AUTH_ENDPOINT += '/refresh'
 
     if not CLIENT_KEY:
         raise Exception("CLIENT_KEY missing")
